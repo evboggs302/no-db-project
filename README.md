@@ -1,11 +1,4 @@
-- Student can write a functioning react application
-- Student can write a functioning Express API
-- Student can request data from Express API
-- Student can display data from Express API
-
-# no db planning sesh
-
-(building a meme generator in class)
+# no db planning
 
 ---
 
@@ -26,12 +19,12 @@
     - header/
       - header.js
       - header.css
-    - MemeDisplayer/
-      - memeDisplayer.js
-      - memeDisplayer.css
-    - MemeCollection/
-      - memeCollection.js
-      - memeCollection.css
+    - Comp1/
+      - madData.js
+      - madData.css
+    - Comp2/
+      - madFinal.js
+      - madFinal.css
 
 ## dependencies
 
@@ -48,7 +41,7 @@
 - server/
   - index.js
   - controller/
-    - memeController.js
+    - madController.js
 
 ## dependencies
 
