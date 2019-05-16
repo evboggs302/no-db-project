@@ -7,7 +7,8 @@ class App extends Component {
     super(props);
     this.state = {
       variables: [],
-      template: []
+      template: [],
+      title: ""
     };
     this.getTemplateFromApi = this.getTemplateFromApi.bind(this);
   }
@@ -21,22 +22,29 @@ class App extends Component {
       console.log(response);
       this.setState({
         template: response.data.value,
-        variables: response.data.blanks
+        variables: response.data.blanks,
+        title: response.data.title
       });
     });
   }
 
   render() {
-    const { variables, template } = this.state;
+    const { variables, template, title } = this.state;
 
     console.log(variables);
     console.log(template);
     return (
       <div>
-        <h1>ITS ABOUT TO GO DOWN</h1>
+        <h1>{">"}ITS ABOUT TO GO DOWN</h1>
         <div>{variables}</div>
         <br />
         <div>{template}</div>
+        <br />
+        <div>
+          {">"}
+          History
+          <div>{title}</div>
+        </div>
       </div>
     );
   }
