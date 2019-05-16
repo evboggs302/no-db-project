@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import axios from "axios";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      variables: [],
+      template: []
+    };
+    this.getTemplateFromApi = this.getTemplateFromApi.bind(this);
+  }
+
+  componentDidMount() {
+    this.getTemplateFromApi();
+  }
+
+  getTemplateFromApi() {
+    axios.get("http://madlibz.herokuapp.com/api/random").then(response => {
+      console.log(response);
+      this.setState({
+        template: response.data.value,
+        variables: response.data.blanks
+      });
+    });
+  }
+
+  render() {
+    const { variables, template } = this.state;
+
+    console.log(variables);
+    console.log(template);
+    return (
+      <div>
+        <h1>ITS ABOUT TO GO DOWN</h1>
+        <div>{variables}</div>
+        <br />
+        <div>{template}</div>
+      </div>
+    );
+  }
 }
 
 export default App;
