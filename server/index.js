@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
-const { getRandomTemplate } = require("./controller/madController");
+const { getData, postData } = require("./controller/madController");
 
 app.use(express.json());
 
-app.get("/api/madliby", getRandomTemplate);
+app.get("/api/madliby", getData);
+app.post("/api/madliby", postData);
 
 const port = 19711;
 app.listen(port, () => console.log(`Server is listening on port: ${port}`));
