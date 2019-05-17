@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Paragraph from "../Paragraph/madPara";
+import NEWButton from "../newButton";
 // import axios from "axios";
 // import "./madWords.css";
 
@@ -65,6 +66,7 @@ class Words extends Component {
         Words, Bruh. WORDS!
         {mappedInputs}
         <button onClick={() => this.submit()}>Create Story</button>
+        <NEWButton action={"insert function to get new story"} />
         <Paragraph story={final} title={this.props.title} />
       </div>
     );

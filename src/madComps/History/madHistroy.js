@@ -8,12 +8,11 @@ const History = props => {
   return (
     <div>
       <br />
-      <h2>History</h2>
-      <div>
-        {props.saved}
-        <button>!!!!! DELETE !!!!!</button>
-      </div>
-      <NEWButton action={"insert function to get new story"} />
+      <h2>
+        History
+        <NEWButton action={"insert function to get new story"} />
+      </h2>
+      <div>{props.saved}</div>
     </div>
   );
 };

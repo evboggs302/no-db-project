@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import History from "../History/madHistroy";
 import NEWButton from "../newButton";
 import axios from "axios";
+import EDITButton from "../editButton";
+import DELETEButton from "../deleteButton";
 
 // import axios from "axios";
 
@@ -39,7 +41,13 @@ class Paragraph extends Component {
         <br />
         <History
           saved={this.state.history.map(e => {
-            return <p>{e.string}</p>;
+            return (
+              <div key={this.props.id}>
+                <p>{e.string}</p>
+                <EDITButton />
+                <DELETEButton />
+              </div>
+            );
           })}
           title={this.props.title}
         />
