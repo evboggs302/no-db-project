@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 import Words from "./madComps/Words/madWords";
-// import Paragraph from "./madComps/Paragraph/madPara";
-// import History from "./madComps/History/madHistroy";
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +12,6 @@ class App extends Component {
       title: ""
     };
     this.getDataFromApi = this.getDataFromApi.bind(this);
-    // this.postDataToBackend = this.postDataToBackend.bind(this);
   }
 
   componentDidMount() {
@@ -30,7 +27,7 @@ class App extends Component {
       });
       axios.post("/api/madliby", response.data).then(response => {
         this.setState({
-          template: response.data.templete,
+          template: response.data.template,
           variables: response.data.variables,
           title: response.data.title
         });
@@ -40,19 +37,16 @@ class App extends Component {
 
   render() {
     const { variables } = this.state;
-    // const { template } = this.state;
-    // const { title } = this.state;
+    const { template } = this.state;
+    const { title } = this.state;
 
     console.log(variables);
     // console.log(template);
     return (
       <div>
         <h1>{">"}ITS ABOUT TO GO DOWN</h1>
-        <Words req={variables} />
         <br />
-        {/* <Paragraph temp={template} /> */}
-        <br />
-        {/* <History title={title} /> */}
+        <Words temp={template} req={variables} title={title} />
       </div>
     );
   }
