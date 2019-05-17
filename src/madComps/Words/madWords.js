@@ -41,6 +41,7 @@ class Words extends Component {
   }
 
   render() {
+    let { final } = this.state;
     let { req } = this.props;
     let arr = req;
     console.log(arr);
@@ -58,7 +59,6 @@ class Words extends Component {
             );
           })
         : [];
-    let { final } = this.state;
 
     return (
       <div>

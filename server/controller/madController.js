@@ -13,7 +13,7 @@ module.exports = {
     res.status(200).send(apiData);
   },
   putData: (req, res, next) => {
-    console.log(req.body);
+    console.log("req.body = ", req.body);
     let { title, blanks, value } = req.body;
     apiData.title = title;
     apiData.variables = blanks;
@@ -22,7 +22,10 @@ module.exports = {
     res.status(200).send(apiData);
   },
   saveStory: (req, res, next) => {
-    res.status(200).end();
+    console.log(req.body);
+    history.push(req.body);
+    console.log("this is history", history);
+    res.status(200).send(history);
   },
   editStory: (req, res, next) => {
     res.status(200).end();
