@@ -1,4 +1,5 @@
 import React from "react";
+import NEWButton from "../newButton";
 // import axios from "axios";
 
 const History = props => {
@@ -6,7 +7,7 @@ const History = props => {
     <div>
       <br />
       <h2>History</h2>
-      <button>!!!!! NEW !!!!!</button>
+      <NEWButton action={"insert function to get new story"} />
       <button>!!!!! DELETE !!!!!</button>
     </div>
   );
