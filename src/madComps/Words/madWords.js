@@ -66,7 +66,11 @@ class Words extends Component {
         Words, Bruh. WORDS!
         {mappedInputs}
         <button onClick={() => this.submit()}>Create Story</button>
-        <NEWButton action={"insert function to get new story"} />
+        {/* <NEWButton
+          temp={this.props.template}
+          req={this.props.variables}
+          title={this.props.title}
+        /> */}
         <Paragraph story={final} title={this.props.title} />
       </div>
     );

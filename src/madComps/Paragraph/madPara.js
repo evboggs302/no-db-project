@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import History from "../History/madHistroy";
 import NEWButton from "../newButton";
 import axios from "axios";
-import EDITButton from "../editButton";
-import DELETEButton from "../deleteButton";
-
-// import axios from "axios";
 
 class Paragraph extends Component {
   constructor(props) {
@@ -14,18 +10,34 @@ class Paragraph extends Component {
       history: []
     };
     this.completedStory = this.completedStory.bind(this);
+    this.deleteFromHist = this.deleteFromHist.bind(this);
   }
 
   completedStory() {
     let { story } = this.props;
-    let body = { string: story };
+    let { id } = this.state;
+    let body = { string: story, id: id };
     console.log(body);
     axios.post("/api/madliby/history", body).then(response => {
       console.log("reponse after posting", response.data);
       this.setState({
         history: response.data
       });
-      console.log("this.state.history =", this.state.history);
+    });
+  }
+
+  deleteFromHist(id) {
+    axios.delete(`/api/madliby/history/${id}`).then(response => {
+      console.log(response.data);
+      this.setState({
+        history: response.data
+      });
+    });
+  }
+
+  editHist(id) {
+    axios.put(`/api/madliby/history/${id}`).then(response => {
+      console.log(response.data);
     });
   }
 
@@ -40,16 +52,10 @@ class Paragraph extends Component {
         <NEWButton action={"insert function to get new story"} />
         <br />
         <History
-          saved={this.state.history.map(e => {
-            return (
-              <div key={this.props.id}>
-                <p>{e.string}</p>
-                <EDITButton />
-                <DELETEButton />
-              </div>
-            );
-          })}
+          saved={this.state.history}
           title={this.props.title}
+          delete={this.deleteFromHist}
+          edit={this.editHist}
         />
       </div>
     );
