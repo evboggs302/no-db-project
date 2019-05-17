@@ -1,18 +1,33 @@
+var apiData = {
+  title: "",
+  variables: [],
+  template: []
+};
+
+var history = [];
+
 module.exports = {
   getData: (req, res, next) => {
-    // console.log(req.body);
-    res.status(200).send(req.body);
+    console.log("getData hit");
+    console.log(apiData);
+    res.status(200).send(apiData);
   },
-  postData: (req, res, next) => {
+  putData: (req, res, next) => {
     console.log(req.body);
-    let { blanks, value } = req.body;
-    let history = [];
-    let title = req.body.title;
-    let variables = blanks;
-    let template = value;
-    res.status(200).send({ variables, template, title });
+    let { title, blanks, value } = req.body;
+    apiData.title = title;
+    apiData.variables = blanks;
+    apiData.template = value;
+    console.log(apiData);
+    res.status(200).send(apiData);
   },
-  postWords: (req, res, next) => {
-    res.status(200);
+  saveStory: (req, res, next) => {
+    res.status(200).end();
+  },
+  editStory: (req, res, next) => {
+    res.status(200).end();
+  },
+  deleteStory: (req, res, next) => {
+    res.status(200).end();
   }
 };

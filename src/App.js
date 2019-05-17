@@ -20,12 +20,9 @@ class App extends Component {
 
   getDataFromApi() {
     axios.get("http://madlibz.herokuapp.com/api/random").then(response => {
-      this.setState({
-        template: response.data.value,
-        variables: response.data.blanks,
-        title: response.data.title
-      });
-      axios.post("/api/madliby", response.data).then(response => {
+      console.log(response.data);
+      axios.put("/api/madliby", response.data).then(response => {
+        console.log(response.data);
         this.setState({
           template: response.data.template,
           variables: response.data.variables,

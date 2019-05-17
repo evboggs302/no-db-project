@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
 import Paragraph from "../Paragraph/madPara";
+// import axios from "axios";
 // import "./madWords.css";
 
 class Words extends Component {

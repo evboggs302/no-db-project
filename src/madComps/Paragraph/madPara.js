@@ -1,24 +1,18 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from "react";
 import History from "../History/madHistroy";
+// import axios from "axios";
 
-class Paragraph extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      story: []
-    };
-  }
+const Paragraph = props => {
+  return (
+    <div>
+      <h3>{props.title}</h3>
+      <span>{props.story}</span>
+      <button>Save</button>
+      <button>!!!! NEW !!!!</button>
+      <br />
+      <History story={props.story} title={props.title} />
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div>
-        <span>{this.props.story}</span>
-
-        {/* <History  temp={this.props.temp}
-          title={this.props.title}/> */}
-      </div>
-    );
-  }
-}
 export default Paragraph;
