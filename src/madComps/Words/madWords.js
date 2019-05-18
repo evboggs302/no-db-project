@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Paragraph from "../Paragraph/madPara";
-import NEWButton from "../newButton";
+// import NEWButton from "../newButton";
 // import axios from "axios";
 // import "./madWords.css";
 
@@ -25,12 +25,10 @@ class Words extends Component {
     } else {
       finalStory.push(temp[temp.length - 2]);
     }
-
-    console.log(finalStory);
+    console.log("this is the final story when clicked =", finalStory);
     this.setState({
-      final: finalStory.join(" ")
+      final: finalStory
     });
-    // axios.post("/api/madliby", this.state.inputs).then(response => {});
   }
 
   changeHandler(event, index) {
@@ -45,11 +43,9 @@ class Words extends Component {
     let { final } = this.state;
     let { req } = this.props;
     let arr = req;
-    console.log(arr);
     let mappedInputs =
       arr && arr.length
         ? arr.map((element, index) => {
-            console.log(element);
             return (
               <div key={index}>
                 <input
@@ -71,7 +67,12 @@ class Words extends Component {
           req={this.props.variables}
           title={this.props.title}
         /> */}
-        <Paragraph story={final} title={this.props.title} />
+        <Paragraph
+          storyArr={final}
+          story={final.join(" ")}
+          title={this.props.title}
+          values={mappedInputs}
+        />
       </div>
     );
   }

@@ -11,15 +11,15 @@ class Paragraph extends Component {
     };
     this.completedStory = this.completedStory.bind(this);
     this.deleteFromHist = this.deleteFromHist.bind(this);
+    this.editHist = this.editHist.bind(this);
   }
 
   completedStory() {
     let { story } = this.props;
     let { id } = this.state;
     let body = { string: story, id: id };
-    console.log(body);
     axios.post("/api/madliby/history", body).then(response => {
-      console.log("reponse after posting", response.data);
+      console.log("reponse after posting=", response.data);
       this.setState({
         history: response.data
       });
@@ -28,20 +28,25 @@ class Paragraph extends Component {
 
   deleteFromHist(id) {
     axios.delete(`/api/madliby/history/${id}`).then(response => {
-      console.log(response.data);
       this.setState({
         history: response.data
       });
     });
   }
 
-  editHist(id) {
-    axios.put(`/api/madliby/history/${id}`).then(response => {
-      console.log(response.data);
-    });
+  editHist(id, values) {
+    axios
+      .put(`/api/madliby/history/${id}?new_values=${values}`)
+      .then(response => {
+        console.log("edit response from server=", response.data);
+        // this.setState({
+        //   history: response.data
+        // });
+      });
   }
 
   render() {
+    // console.log("this is the values being sent to server", this.props.values);
     return (
       <div>
         <h3>{this.props.title}</h3>
@@ -49,13 +54,14 @@ class Paragraph extends Component {
         <div>
           <button onClick={() => this.completedStory()}>Save Story</button>
         </div>
-        <NEWButton action={"insert function to get new story"} />
+        <NEWButton />
         <br />
         <History
           saved={this.state.history}
           title={this.props.title}
           delete={this.deleteFromHist}
           edit={this.editHist}
+          values={this.props.values}
         />
       </div>
     );

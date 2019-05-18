@@ -37,8 +37,6 @@ class App extends Component {
     const { template } = this.state;
     const { title } = this.state;
 
-    console.log(variables);
-    // console.log(template);
     return (
       <div>
         <h1>{">"}ITS ABOUT TO GO DOWN</h1>

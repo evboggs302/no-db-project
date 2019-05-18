@@ -7,10 +7,9 @@
 - reset.css
 - package.json
   - main
-  - reminder to setup proxy
-    - port# = 19711
+  - reminder to setup proxy (port# = 19711)
 
-## frontend folder structure
+## frontend folder structure (to start)
 
 - src/
   - app.js
@@ -52,7 +51,6 @@
 ## routes
 
 - get: '/api/madliby'
-- get: '/api/madliby/:id'
 - post: '/api/madliby'
 - put: '/api/madliby/:id'
 - delete: '/api/madliby/:id'
