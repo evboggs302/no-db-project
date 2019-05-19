@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import History from "../History/madHistroy";
 import NEWButton from "../Buttons/newButton";
 import axios from "axios";
+import "./madPara.css";
 
 class Paragraph extends Component {
   constructor(props) {
@@ -17,7 +18,6 @@ class Paragraph extends Component {
 
   moveUp(id) {
     axios.put(`/api/madliby/history/dope/${id}`).then(response => {
-      console.log("edit response from server=", response.data);
       this.setState({
         history: response.data
       });
@@ -26,7 +26,6 @@ class Paragraph extends Component {
 
   moveDown(id) {
     axios.put(`/api/madliby/history/dumb/${id}`).then(response => {
-      console.log("edit response from server=", response.data);
       this.setState({
         history: response.data
       });
@@ -38,7 +37,6 @@ class Paragraph extends Component {
     let { id } = this.state;
     let body = { string: story, id: id };
     axios.post("/api/madliby/history", body).then(response => {
-      console.log("reponse after posting=", response.data);
       this.setState({
         history: response.data
       });
@@ -54,7 +52,6 @@ class Paragraph extends Component {
   }
 
   render() {
-    // console.log("this is the values being sent to server", this.props.values);
     return (
       <div>
         <h3>{this.props.title}</h3>

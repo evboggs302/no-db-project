@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Paragraph from "../Paragraph/madPara";
-
-// import axios from "axios";
-// import "./madWords.css";
+import "./madWords.css";
 
 class Words extends Component {
   constructor(props) {
@@ -27,9 +25,6 @@ class Words extends Component {
     } else {
       finalStory.push(temp[temp.length - 2]);
     }
-    console.log(temp);
-    console.log(inputs);
-    console.log("this is the final story when clicked =", finalStory);
     this.setState({
       final: finalStory.join(" ")
     });

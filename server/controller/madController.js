@@ -23,8 +23,6 @@ module.exports = {
   },
   likeStory: (req, res, next) => {
     const { id } = req.params;
-    console.log("the id of the clicked story= ", id);
-    console.log("this is the hist arr on the server=", history);
     if (id === 0) {
       res.status(200).send(history);
     }
@@ -37,13 +35,10 @@ module.exports = {
 
       history = histClone;
       res.status(200).send(history);
-      console.log(history);
     }
   },
   downStory: (req, res, next) => {
     const { id } = req.params;
-    console.log("the id of the clicked story= ", id);
-    console.log("the api reqs= ", apiData.variables);
     if (id === history.length - 1) {
       res.status(200).send(history);
     }
@@ -55,7 +50,6 @@ module.exports = {
       histClone.splice(newIndex, 0, value);
       history = histClone;
       res.status(200).send(history);
-      console.log(history);
     }
   },
   deleteStory: (req, res, next) => {

@@ -20,9 +20,7 @@ class App extends Component {
 
   getDataFromApi() {
     axios.get("http://madlibz.herokuapp.com/api/random").then(response => {
-      console.log(response.data);
       axios.put("/api/madliby", response.data).then(response => {
-        console.log(response.data);
         this.setState({
           template: response.data.template,
           variables: response.data.variables,
@@ -38,10 +36,13 @@ class App extends Component {
     const { title } = this.state;
 
     return (
-      <div>
-        <h1>ITS ABOUT TO GET REAL</h1>
-        <br />
-        <Words temp={template} req={variables} title={title} />
+      <div className="body">
+        <header className="head">
+          <h3>IT'S ABOUT TO GET REAL</h3>
+        </header>
+        <div className="theRest">
+          <Words temp={template} req={variables} title={title} />
+        </div>
       </div>
     );
   }

@@ -1,8 +1,8 @@
 import React from "react";
-import UpButton from "../Buttons/UpButton";
+import UpButton from "../Buttons/upButton";
 import DownButton from "../Buttons/downButton";
 import DELETEButton from "../Buttons/deleteButton";
-// import axios from "axios";
+import "./madHistory.css";
 
 const History = props => {
   let mappedHist = props.saved.map((e, index) => {
