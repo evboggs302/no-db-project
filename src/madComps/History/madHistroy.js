@@ -1,7 +1,7 @@
 import React from "react";
-// import NEWButton from "../newButton";
-import EDITButton from "../editButton";
-import DELETEButton from "../deleteButton";
+import UpButton from "../Buttons/UpButton";
+import DownButton from "../Buttons/downButton";
+import DELETEButton from "../Buttons/deleteButton";
 // import axios from "axios";
 
 const History = props => {
@@ -9,7 +9,8 @@ const History = props => {
     return (
       <div key={index}>
         <p>{e.string}</p>
-        <EDITButton id={index} edit={props.edit} />
+        <UpButton id={index} moveUp={props.moveUp} />
+        <DownButton id={index} moveDown={props.moveDown} />
         <DELETEButton id={index} delete={props.delete} />
       </div>
     );
@@ -18,10 +19,7 @@ const History = props => {
   return (
     <div>
       <br />
-      <h2>
-        History
-        {/* <NEWButton action={"insert function to get new story"} /> */}
-      </h2>
+      <h2>History</h2>
       <div>{mappedHist}</div>
     </div>
   );

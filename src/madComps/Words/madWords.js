@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Paragraph from "../Paragraph/madPara";
-// import NEWButton from "../newButton";
+
 // import axios from "axios";
 // import "./madWords.css";
 
@@ -11,6 +11,8 @@ class Words extends Component {
       inputs: [],
       final: []
     };
+    this.changeHandler = this.changeHandler.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   submit() {
@@ -25,9 +27,11 @@ class Words extends Component {
     } else {
       finalStory.push(temp[temp.length - 2]);
     }
+    console.log(temp);
+    console.log(inputs);
     console.log("this is the final story when clicked =", finalStory);
     this.setState({
-      final: finalStory
+      final: finalStory.join(" ")
     });
   }
 
@@ -62,16 +66,10 @@ class Words extends Component {
         Words, Bruh. WORDS!
         {mappedInputs}
         <button onClick={() => this.submit()}>Create Story</button>
-        {/* <NEWButton
-          temp={this.props.template}
-          req={this.props.variables}
-          title={this.props.title}
-        /> */}
         <Paragraph
-          storyArr={final}
-          story={final.join(" ")}
+          story={final}
           title={this.props.title}
-          values={mappedInputs}
+          values={this.state.inputs}
         />
       </div>
     );

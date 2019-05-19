@@ -39,7 +39,7 @@ class App extends Component {
 
     return (
       <div>
-        <h1>{">"}ITS ABOUT TO GO DOWN</h1>
+        <h1>ITS ABOUT TO GET REAL</h1>
         <br />
         <Words temp={template} req={variables} title={title} />
       </div>

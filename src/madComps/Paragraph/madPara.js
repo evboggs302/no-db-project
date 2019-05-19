@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import History from "../History/madHistroy";
-import NEWButton from "../newButton";
+import NEWButton from "../Buttons/newButton";
 import axios from "axios";
 
 class Paragraph extends Component {
@@ -11,7 +11,26 @@ class Paragraph extends Component {
     };
     this.completedStory = this.completedStory.bind(this);
     this.deleteFromHist = this.deleteFromHist.bind(this);
-    this.editHist = this.editHist.bind(this);
+    this.moveUp = this.moveUp.bind(this);
+    this.moveDown = this.moveDown.bind(this);
+  }
+
+  moveUp(id) {
+    axios.put(`/api/madliby/history/dope/${id}`).then(response => {
+      console.log("edit response from server=", response.data);
+      this.setState({
+        history: response.data
+      });
+    });
+  }
+
+  moveDown(id) {
+    axios.put(`/api/madliby/history/dumb/${id}`).then(response => {
+      console.log("edit response from server=", response.data);
+      this.setState({
+        history: response.data
+      });
+    });
   }
 
   completedStory() {
@@ -34,17 +53,6 @@ class Paragraph extends Component {
     });
   }
 
-  editHist(id, values) {
-    axios
-      .put(`/api/madliby/history/${id}?new_values=${values}`)
-      .then(response => {
-        console.log("edit response from server=", response.data);
-        // this.setState({
-        //   history: response.data
-        // });
-      });
-  }
-
   render() {
     // console.log("this is the values being sent to server", this.props.values);
     return (
@@ -60,8 +68,8 @@ class Paragraph extends Component {
           saved={this.state.history}
           title={this.props.title}
           delete={this.deleteFromHist}
-          edit={this.editHist}
-          values={this.props.values}
+          moveUp={this.moveUp}
+          moveDown={this.moveDown}
         />
       </div>
     );

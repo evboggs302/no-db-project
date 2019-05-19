@@ -21,27 +21,50 @@ module.exports = {
     history.push(req.body);
     res.status(200).send(history);
   },
-
-  editStory: (req, res, next) => {
+  likeStory: (req, res, next) => {
     const { id } = req.params;
     console.log("the id of the clicked story= ", id);
-    const { new_values } = req.query;
-    console.log("the values of query= ", new_values);
     console.log("this is the hist arr on the server=", history);
-    // if (id !== -1) {
-    //   history[id].string = new_values;
-    // }
+    if (id === 0) {
+      res.status(200).send(history);
+    }
+    if (id > 0 && id <= history.length - 1) {
+      let histClone = history.slice();
+      let value = history[id];
+      let newIndex = id - 1;
+      histClone.splice(id, 1);
+      histClone.splice(newIndex, 0, value);
 
-    res.status(200).send(new_values);
+      history = histClone;
+      res.status(200).send(history);
+      console.log(history);
+    }
   },
-
+  downStory: (req, res, next) => {
+    const { id } = req.params;
+    console.log("the id of the clicked story= ", id);
+    console.log("the api reqs= ", apiData.variables);
+    if (id === history.length - 1) {
+      res.status(200).send(history);
+    }
+    if (id < history.length - 1 && id > -1) {
+      let histClone = history.slice();
+      let value = history[id];
+      let newIndex = id + 1;
+      histClone.splice(id, 1);
+      histClone.splice(newIndex, 0, value);
+      history = histClone;
+      res.status(200).send(history);
+      console.log(history);
+    }
+  },
   deleteStory: (req, res, next) => {
     const { id } = req.params;
     if (id !== -1) {
       history.splice(id, 1);
       res.status(200).send(history);
     } else {
-      res.status(404).send("Not Found");
+      res.status(404).send("try something else nimrod");
     }
   }
 };
