@@ -55,7 +55,7 @@ class Paragraph extends Component {
     return (
       <div>
         <h3 className="stroyTitle">{this.props.title}</h3>
-        <span className="stroy">{this.props.story}</span>
+        <span className="storyy">{this.props.story}</span>
         <div className="saveButton">
           <button onClick={() => this.completedStory()}>Save Story</button>
         </div>
