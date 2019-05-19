@@ -3,7 +3,7 @@ import "./delete.css";
 
 const DELETEButton = props => {
   return (
-    <div>
+    <div className="deleteButton">
       <button onClick={() => props.delete(props.id)}>Delete</button>
     </div>
   );

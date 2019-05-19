@@ -57,10 +57,13 @@ class Words extends Component {
         : [];
 
     return (
-      <div>
-        Words, Bruh. WORDS!
+      <div className="inputs">
+        <h3 className="wordsBruh">Words, Bruh. WORDS!</h3>
         {mappedInputs}
-        <button onClick={() => this.submit()}>Create Story</button>
+        <br />
+        <button className="createButton" onClick={() => this.submit()}>
+          Create Story
+        </button>
         <Paragraph
           story={final}
           title={this.props.title}

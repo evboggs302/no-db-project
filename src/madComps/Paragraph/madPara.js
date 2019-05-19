@@ -54,12 +54,13 @@ class Paragraph extends Component {
   render() {
     return (
       <div>
-        <h3>{this.props.title}</h3>
-        <span>{this.props.story}</span>
-        <div>
+        <h3 className="stroyTitle">{this.props.title}</h3>
+        <span className="stroy">{this.props.story}</span>
+        <div className="saveButton">
           <button onClick={() => this.completedStory()}>Save Story</button>
         </div>
         <NEWButton />
+        <br />
         <br />
         <History
           saved={this.state.history}

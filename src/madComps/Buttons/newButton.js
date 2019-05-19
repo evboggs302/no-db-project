@@ -10,7 +10,7 @@ const NEWButton = props => {
     });
   }
   return (
-    <div>
+    <div className="newStoryButton">
       <button onClick={() => getNewStory()}>New Story</button>
     </div>
   );

@@ -17,10 +17,10 @@ const History = props => {
   });
 
   return (
-    <div>
+    <div className="history">
       <br />
       <h2>History</h2>
-      <div>{mappedHist}</div>
+      <div className="historyItems">{mappedHist}</div>
     </div>
   );
 };

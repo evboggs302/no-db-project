@@ -1,0 +1,19 @@
+.inputs {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: orange;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  max-height: 100vh;
+}
+
+.wordsBruh {
+  display: flex;
+  font-family: "Indie Flower", cursive;
+}
+
+.createButton {
+  display: flex;
+}
