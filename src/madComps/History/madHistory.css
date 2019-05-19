@@ -1,3 +1,18 @@
 .history {
   display: flex;
+  max-height: 5000px;
+  width: 100%;
+  /* background-color: yellow; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyItems {
+  display: flex;
+  width: 100%;
+  /* background-color: blue; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

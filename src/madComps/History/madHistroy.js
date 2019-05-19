@@ -19,7 +19,7 @@ const History = props => {
   return (
     <div className="history">
       <br />
-      <h2>History</h2>
+      <h2 className="title">History</h2>
       <div className="historyItems">{mappedHist}</div>
     </div>
   );

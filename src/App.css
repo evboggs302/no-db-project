@@ -1,6 +1,9 @@
 .body {
   display: flex;
   background-color: rgb(32, 175, 175);
+  background-image: url("./DSCF1494.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
   justify-content: center;
@@ -17,12 +20,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Orbitron", sans-serif;
+  font-family: "Indie Flower", cursive;
 }
 
 .theRest {
   height: 90vh;
-  width: 60%;
+  width: 45%;
   display: flex;
   justify-content: center;
   margin: 0 auto;

@@ -53,9 +53,10 @@ class Paragraph extends Component {
 
   render() {
     return (
-      <div>
+      <div className="madPara">
         <h3 className="stroyTitle">{this.props.title}</h3>
-        <span className="storyy">{this.props.story}</span>
+        <span className="story">{this.props.story}</span>
+        <br />
         <div className="saveButton">
           <button onClick={() => this.completedStory()}>Save Story</button>
         </div>

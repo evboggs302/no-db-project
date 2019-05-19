@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./new.css";
 
 const NEWButton = props => {
   function getNewStory() {
@@ -10,8 +11,10 @@ const NEWButton = props => {
     });
   }
   return (
-    <div className="newStoryButton">
-      <button onClick={() => getNewStory()}>New Story</button>
+    <div>
+      <button className="newStoryButton" onClick={() => getNewStory()}>
+        New Story
+      </button>
     </div>
   );
 };

@@ -46,7 +46,7 @@ class Words extends Component {
       arr && arr.length
         ? arr.map((element, index) => {
             return (
-              <div key={index}>
+              <div className="layout" key={index}>
                 <input
                   placeholder={element}
                   onChange={event => this.changeHandler(event, index)}

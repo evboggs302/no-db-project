@@ -1,6 +1,17 @@
+.madPara {
+  display: flex;
+  height: 1000px;
+  width: 100%;
+  /* background-color: red; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .stroyTitle {
   display: flex;
 }
 
 .story {
+  display: flex;
 }
