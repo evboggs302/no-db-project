@@ -21,6 +21,9 @@ const History = props => {
       <br />
       <h2 className="title">History</h2>
       <div className="historyItems">{mappedHist}</div>
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
