@@ -23,10 +23,13 @@ module.exports = {
   },
   likeStory: (req, res, next) => {
     const { id } = req.params;
+    if (id === 0 && id === history.length) {
+      res.status(200).send(history);
+    }
     if (id === 0) {
       res.status(200).send(history);
     }
-    if (id > 0 && id <= history.length - 1) {
+    if (id > 0 && id <= history.length) {
       let histClone = history.slice();
       let value = history[id];
       let newIndex = id - 1;
@@ -39,10 +42,13 @@ module.exports = {
   },
   downStory: (req, res, next) => {
     const { id } = req.params;
-    if (id === history.length - 1) {
+    if (id === 0 && id === history.length) {
       res.status(200).send(history);
     }
-    if (id < history.length - 1 && id > -1) {
+    if (id === history.length) {
+      res.status(200).send(history);
+    }
+    if (id < history.length && id > -1) {
       let histClone = history.slice();
       let value = history[id];
       let newIndex = id + 1;
