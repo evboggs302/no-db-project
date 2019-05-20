@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <div className="body">
         <header className="head">
-          <h1>IT'S ABOUT TO GET REAL</h1>
+          <h1>Madlibs</h1>
         </header>
         <div className="theRest">
           <Words temp={template} req={variables} title={title} />
