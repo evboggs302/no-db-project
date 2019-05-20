@@ -44,11 +44,14 @@ class Paragraph extends Component {
   }
 
   deleteFromHist(id) {
-    axios.delete(`/api/madliby/history/${id}`).then(response => {
-      this.setState({
-        history: response.data
-      });
-    });
+    axios
+      .delete(`/api/madliby/history/${id}`)
+      .then(response => {
+        this.setState({
+          history: response.data
+        });
+      })
+      .catch(error => console.log(`its not deleting... awkward`));
   }
 
   render() {
